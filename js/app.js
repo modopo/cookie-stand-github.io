@@ -2,7 +2,7 @@
 
 const HOUR_TOTALS = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-const SALES_TABLE = document.getElementById('salesTable');
+let salesTable = document.getElementById('salesTable');
 
 let seattle = new Store('Seattle', 23, 65, 6.3);
 let tokyo = new Store('Tokyo', 3, 24, 1.2);
@@ -12,6 +12,7 @@ let lima = new Store('Lima', 2, 16, 4.6);
 
 let storeList = [seattle, tokyo, dubai, paris, lima];
 
+//constructor function for Store object
 function Store(name, minCust, maxCust, avgCookiePerSale) {
   this.name = name;
   this.minCust = minCust;
@@ -39,7 +40,7 @@ function Store(name, minCust, maxCust, avgCookiePerSale) {
     this.cookieTotals.push(total);
   };
 
-  this.render = function() {
+  this.render = function () {
     this.cookiesSold();
     this.totalCookiesSold();
 
@@ -60,7 +61,7 @@ function Store(name, minCust, maxCust, avgCookiePerSale) {
 
 function renderTableHeader(hours) {
   let thead = document.createElement('thead');
-  SALES_TABLE.appendChild(thead);
+  salesTable.appendChild(thead);
 
   let tr = document.createElement('tr');
   let emptyTh = document.createElement('th');
@@ -78,12 +79,12 @@ function renderTableHeader(hours) {
   tr.appendChild(locationTotal);
 
   let tbody = document.createElement('tbody');
-  SALES_TABLE.appendChild(tbody);
+  salesTable.appendChild(tbody);
 }
 
 function renderTableFooter(storeList) {
   let tfoot = document.createElement('tfoot');
-  SALES_TABLE.append(tfoot);
+  salesTable.append(tfoot);
 
   let tr = document.createElement('tr');
   let totalTd = document.createElement('td');
@@ -105,10 +106,18 @@ function renderTableFooter(storeList) {
   tfoot.appendChild(tr);
 }
 
+//excutables
 renderTableHeader(HOUR_TOTALS);
+
+/*
 storeList.forEach(store => {
   store.render();
 });
+*/
+
+for (let i = 0; i < storeList.length; i++) {
+  storeList[i].render();
+}
 
 renderTableFooter(storeList);
 
