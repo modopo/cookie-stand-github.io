@@ -60,8 +60,7 @@ function Store(name, minCust, maxCust, avgCookiePerSale) {
 }
 
 function renderTableHeader(hours) {
-  let thead = document.createElement('thead');
-  salesTable.appendChild(thead);
+  let thead = document.querySelector('thead');
 
   let tr = document.createElement('tr');
   let emptyTh = document.createElement('th');
@@ -72,19 +71,16 @@ function renderTableHeader(hours) {
     th.textContent = hours[i];
     tr.appendChild(th);
   }
-  thead.appendChild(tr);
 
   let locationTotal = document.createElement('th');
   locationTotal.textContent = 'Daily Location Total';
   tr.appendChild(locationTotal);
 
-  let tbody = document.createElement('tbody');
-  salesTable.appendChild(tbody);
+  thead.appendChild(tr);
 }
 
 function renderTableFooter(storeList) {
-  let tfoot = document.createElement('tfoot');
-  salesTable.append(tfoot);
+  let tfoot = document.querySelector('tfoot');
 
   let tr = document.createElement('tr');
   let totalTd = document.createElement('td');
@@ -109,15 +105,9 @@ function renderTableFooter(storeList) {
 //excutables
 renderTableHeader(HOUR_TOTALS);
 
-/*
 storeList.forEach(store => {
   store.render();
-});
-*/
-
-for (let i = 0; i < storeList.length; i++) {
-  storeList[i].render();
-}
+})
 
 renderTableFooter(storeList);
 
