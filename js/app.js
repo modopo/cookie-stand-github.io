@@ -77,7 +77,6 @@ function renderTableHeader(hours) {
   tr.appendChild(locationTotal);
 
   thead.appendChild(tr);
-
 }
 
 function renderTableFooter(storeList) {
