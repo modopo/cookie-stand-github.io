@@ -2,10 +2,11 @@
 
 const HOUR_TOTALS = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+//DOM access
 let salesTable = document.getElementById('salesTable');
-
 let storeForm = document.querySelector('form');
 
+//initial Stores
 let seattle = new Store('Seattle', 23, 65, 6.3);
 let tokyo = new Store('Tokyo', 3, 24, 1.2);
 let dubai = new Store('Dubai', 11, 38, 3.7);
@@ -82,8 +83,11 @@ function renderTableHeader(hours) {
 }
 
 function renderTableFooter(storeList) {
-  let tfoot = document.querySelector('tfoot');
-
+  document.querySelector('tfoot').remove();
+  
+  let tf = document.createElement('tfoot');
+  salesTable.appendChild(tf)
+  
   let tr = document.createElement('tr');
   let totalTd = document.createElement('td');
   totalTd.textContent = 'Totals';
@@ -101,7 +105,7 @@ function renderTableFooter(storeList) {
     tr.appendChild(td);
   }
 
-  tfoot.appendChild(tr);
+  tf.appendChild(tr);
 }
 
 function ingestStore(event) {
@@ -117,6 +121,7 @@ function ingestStore(event) {
   storeList.push(newStore);
 
   newStore.render();
+  renderTableFooter(storeList);
 }
 
 function renderStoreList(stores) {
