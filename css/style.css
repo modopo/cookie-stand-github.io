@@ -61,12 +61,9 @@ main img {
 
 #locations {
   display: flex;
-  
   margin-bottom: 30px;
   width: 50%;
 }
-
-
 
 
 /* Table styles */
