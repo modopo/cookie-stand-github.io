@@ -86,3 +86,9 @@ th {
 tfoot {
   background-color: rgba(112, 159, 165, .1);
 }
+
+/* Form styles */
+form {
+  display: flex;
+  width: 50%;
+}

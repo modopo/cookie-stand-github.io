@@ -11,26 +11,32 @@
 </head>
 
 <body>
-    <div id="locations">
-        <table id="salesTable">
-        </table>
-    </div>
-    <a href="index.html">Homepage</a>
+  <header>
+    <nav>
+      <a href="index.html"><img src="img/salmon.png"></a>
+      <ul id="navbarLinks">
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Nav</a></li>
+      </ul>
+      <a href="#"><img src="img/chinook.jpg"></a>
+    </nav>
+  </header>
   <div>
     <form id="form">
       <fieldset>
         <legend>Store's Basic Information</legend>
         <label>Name of City:
-          <input type="text" placeholder="ex. Austin" name="cityName">
+          <input type="text" placeholder="ex: Austin" name="cityName">
         </label>
         <label>Minimum Customer encountered:
-          <input type="number" placeholder="ex. Austin" name="minCustomer">
+          <input type="number" placeholder="ex: 2" name="minCustomer">
         </label>
         <label>Maximum Customer encountered:
-          <input type="number" placeholder="ex. Austin" name="maxCustomer">
+          <input type="number" placeholder="ex: 42" name="maxCustomer">
         </label>
         <label>Average Cookies Sold in One Transaction:
-          <input type="number" placeholder="42" name="avgCookiesSold">
+          <input type="number" placeholder="ex: 10" name="avgCookiesSold">
         </label>
       </fieldset>
       <button type="submit">Submit</button>
