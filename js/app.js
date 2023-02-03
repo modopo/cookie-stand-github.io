@@ -117,10 +117,9 @@ function ingestStore(event) {
   let avgCookiesSold = parseInt(event.target.avgCookiesSold.value);
 
   let newStore = new Store(city, minCustomer, maxCustomer, avgCookiesSold);
-
   storeList.push(newStore);
-
   newStore.render();
+  
   renderTableFooter(storeList);
 }
 
